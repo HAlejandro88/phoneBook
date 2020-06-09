@@ -1,27 +1,36 @@
 # Phonebook
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+Aplicación de Agenda telefónica,
+los campos que se mostraran en una tabla dinamica son los siguientes **idPersona**, **NombreCompleto**,
+**telefono**,
+**Email**,
+**FechaNacimiento**
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+la agenda tiene en la tabla una columna de Controles donde se elimina el contacto o se modifican el contacto
 
-## Code scaffolding
+en el toolbar tiene un icono de mas, en ese boton manda a llamar al formulario para agregar contacto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+los datos se guardan en *localStorage* por lo que si se recarga la pagina no se pierden los datos.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+muestro la funcion de guardar en el storage
+```typescript
+saveLocalStorage() {
+    localStorage.setItem('agenda', JSON.stringify(this.personas));
+  }
+```
 
-## Running unit tests
+## Visualizar la aplicacion
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+instalar las dependencias con 
+> npm install --save
 
-## Running end-to-end tests
+## Compilar y Mostrar en el navegador
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+> ng serve -o
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Autor
+
+**Alejandro Soto**

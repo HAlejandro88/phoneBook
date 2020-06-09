@@ -1,0 +1,28 @@
+
+<form [formGroup]="forma">
+    
+    <mat-form-field class="form">
+        <mat-label>Nombre Completo</mat-label>
+        <input matInput placeholder="Nombre Completo" formControlName="NombreCompleto" required>
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label>Telefono</mat-label>
+        <input matInput placeholder="Telefono" formControlName="telefono" required>
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$" formControlName="email" required>
+    </mat-form-field>
+
+    <mat-form-field class="form">
+        <mat-label>Fecha Nacimiento</mat-label>
+        <input  matInput placeholder="Fecha Nacimiento" formControlName="fechaNacimiento" required>
+    </mat-form-field>
+
+    <br>
+
+    <button (click)="saveChanges()" mat-raised-button color="primary">Agregar</button>
+    <button (click)="cancelar()" type="button" mat-raised-button color="warn">cancelar</button>
+</form>

@@ -1,0 +1,84 @@
+
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>PhoneBook</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button (click)="formulario = true">
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-toolbar-row>
+</mat-toolbar>
+
+
+<div *ngIf="formulario == true"  class="container mt-5">
+  <mat-card>
+    <mat-card-content>
+      <form (ngSubmit)="creatFriend(form)" #form="ngForm">
+  
+      <mat-form-field class="form">
+          <mat-label>Nombre Completo</mat-label>
+          <input matInput placeholder="Nombre Completo" name="NombreCompleto" [(ngModel)]="friend.NombreCompleto">
+      </mat-form-field>
+  
+      <mat-form-field class="form">
+          <mat-label>Telefono</mat-label>
+          <input matInput placeholder="Telefono" name="telefono" [(ngModel)]="friend.telefono">
+      </mat-form-field>
+  
+      <mat-form-field class="form">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" name="email" [(ngModel)]="friend.email">
+      </mat-form-field>
+  
+      <mat-form-field class="form">
+          <mat-label>Fecha Nacimiento</mat-label>
+          <input  matInput placeholder="Fecha Nacimiento" name="fechaNacimiento" [(ngModel)]="friend.fechaNacimiento">
+      </mat-form-field>
+  
+      <br>
+  
+      <button type="submit" mat-raised-button color="primary">Agregar</button>
+  </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+<div class="container mt-5">
+    <h1 class="text-center">Tu Agenda</h1>
+<hr>
+<div>
+    <table class="table mt-5">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">idPersona</th>
+            <th scope="col">Nombre Completo</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Email</th>
+            <th scope="col">Fecha Nacimiento</th>
+            <th>controls</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let persona of personas; let i = index" >
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ persona.NombreCompleto }}</td>
+            <td class="success">{{ persona.telefono }}</td>
+            <td>{{ persona.email }}</td>
+            <td>{{ persona.fechaNacimiento | date }}</td>
+            <td>
+              <button mat-icon-button color="warn" (click)="deletePerson(i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <button mat-icon-button color="primary" (click)="update(persona)">
+                <mat-icon>create</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+</div>
+</div>
+
+
