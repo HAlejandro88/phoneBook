@@ -52,8 +52,8 @@ export class BookComponent implements OnInit {
       persona.idPersona = result.idPersona;
       persona.NombreCompleto = result.NombreCompleto;
       persona.telefono = result.telefono;
-      persona.email = persona.email;
-      persona.fechaNacimiento = persona.fechaNacimiento;
+      persona.email = result.email;
+      persona.fechaNacimiento = result.fechaNacimiento;
       this.saveLocalStorage();
       this.snackBar.open('Contacto Actualizado', 'Cerrar', { duration: 3000 });
     })
